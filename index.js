@@ -1,11 +1,9 @@
-var http = require('http');
+var express = require("express");
+var app = express();
+const port = process.env.PORT || 3000;
 
-
-http.createServer(function (req, res) {
-    res.writeHead(200, {
-        'Content-Type': 'text/plain'
-    });
-    res.end('Hey\n');
-}).listen(3000, '127.0.0.1');
-
-console.log('server runs in http://127.0.0.1:3000/');
+app.get("/", function (req, res) {
+    res.send("Welcome to here");
+    console.log("prueba");
+});
+app.listen(port);
