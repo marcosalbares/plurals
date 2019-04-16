@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express();
+var http = require('http');
 
-app.get('/', function (req, res) {
-    // res.send('Hello world');
-    res.json({ hello: 'Hello world' });
-});
 
-var server = app.listen(3000, function () {
-    console.log('server runs in http://127.0.0.1:3000/');
-});
+http.createServer(function (req, res) {
+    res.writeHead(200, {
+        'Content-Type': 'text/plain'
+    });
+    res.end('Hey\n');
+}).listen(3000, '127.0.0.1');
+
+console.log('server runs in http://127.0.0.1:3000/');
